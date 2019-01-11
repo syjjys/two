@@ -11,18 +11,19 @@ import './index.scss'
 
 @inject('TabBarStore')
 @observer
+//派生类
 class Index extends Component {
-  
+  //配置导航栏标题
   config = {
     navigationBarTitleText: 'ARBook'
   }
-
+//提供一个渲染前调用方法的环境
   componentWillMount() { }
 
   componentWillReact() {
     console.log('componentWillReact')
   }
-
+//提供一个渲染后调用方法的环境
   componentDidMount() { }
 
   componentWillUnmount() { }
@@ -30,7 +31,7 @@ class Index extends Component {
   componentDidShow() { }
 
   componentDidHide() { }
-
+//渲染
   render() {
     const { TabBarStore: { currentTab } } = this.props;
     let content;
@@ -47,7 +48,7 @@ class Index extends Component {
         break;
       }
     }
-
+//返回参数
     return (
       <View className='index'>
         {content}
@@ -56,5 +57,5 @@ class Index extends Component {
     );
   }
 }
-
+//输出默认值
 export default Index

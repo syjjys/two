@@ -5,11 +5,11 @@ import { AtButton, AtIcon } from 'taro-ui'
 
 import './index.scss'
 
-
+//派生类
 @inject('CounterStore')
 @observer
 class Index extends Component {
-
+//设置增加按钮
   incBtnHandler = () => {
     const { CounterStore } = this.props
     CounterStore.increase()
@@ -20,7 +20,7 @@ class Index extends Component {
     //   duration: 5000
     // }).then(res => console.log(res))
   }
-
+//设置减少按钮
   decBtnHandler = () => {
     const { CounterStore } = this.props
     CounterStore.decrease()
@@ -30,10 +30,10 @@ class Index extends Component {
     const { CounterStore } = this.props
     CounterStore.increaseAsync()
   }
-
+//渲染
   render() {
     const { CounterStore: { count } } = this.props
-
+//返回参数
     return (
       <View className='counter'>
         <View className='counter-value'>
@@ -55,5 +55,5 @@ class Index extends Component {
     )
   }
 }
-
+//输出默认值
 export default Index

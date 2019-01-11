@@ -1,26 +1,24 @@
 import Taro from '@tarojs/taro'
-//引入试图组件
 import { View } from '@tarojs/components'
-//引入 选项卡 分散页 按钮
 import { AtTabs, AtTabsPane, AtButton } from 'taro-ui'
 
-
+//taro派生类
 class Index extends Taro.Component {
-//页面显示名称为发现页
+//设置导航栏名称
   config = {
     navigationBarTitleText: '发现页'
   }
-//页面中表头状态及选项卡状态设置
+//管理tab页的值
   tabHandler = (value) => {
     this.setState({
       currentTab: value
     })
-  }
-//定义返回函数
+  }	
+	//设置返回按钮
   backButtonHandler = () => {
     Taro.navigateBack()
   }
-//定义三个选项卡函数
+//设置tab页的打底菜单栏
   render() {
     const { currentTab } = this.state;
     const tabList = [
@@ -28,8 +26,8 @@ class Index extends Taro.Component {
       { title: '标签页2' },
       { title: '标签页3' },
     ]
-
-    return (//页面布局
+//返回参数
+    return (
       <View>
         <AtTabs
           current={currentTab}
@@ -38,7 +36,6 @@ class Index extends Taro.Component {
         >
           <AtTabsPane current={currentTab} index={0} >
             <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;'>
-			//返回主页按钮设置，调用backButtonHandler返回函数
               <AtButton type='secondary' onClick={this.backButtonHandler}>
                 回到 TabBar 页并关闭本页
               </AtButton>
@@ -59,5 +56,5 @@ class Index extends Taro.Component {
     )
   }
 }
-//输出默认的值
+//输出默认值
 export default Index
